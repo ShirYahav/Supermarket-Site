@@ -1,0 +1,21 @@
+<div *ngIf="customer?.role === 'Admin'">
+    <div>
+        <select (change)="getItemsByCategory($event)">
+            <option disabled selected>Select a category</option>
+            <option *ngFor="let c of categories" [value]="c._id">{{c.category}}</option>
+        </select>
+    
+        <input type="text" [(ngModel)]="term" placeholder="look for an item" />
+    </div>
+    <br>
+    
+    <div class="itemsList">
+        <app-admin-item-card *ngFor="let i of items" [item]="i"></app-admin-item-card>
+    </div>
+
+</div>
+
+
+<div *ngIf="customer?.role === 'User'">
+    <h2>Page Not Found :(((</h2>
+</div>

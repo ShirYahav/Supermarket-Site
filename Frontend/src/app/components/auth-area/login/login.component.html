@@ -1,0 +1,20 @@
+<div>
+    
+    <h2>Login</h2>
+
+    <form (ngSubmit)="submit()" #loginForm="ngForm" >
+
+        <input type="email" name="email" placeholder="Email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [(ngModel)]="credentials.email" #emailBox="ngModel"/>
+        <span *ngIf="emailBox.errors?.['required'] && emailBox.touched">Missing Email</span>
+        <span *ngIf="emailBox.errors?.['pattern'] && emailBox.touched"> Email</span>
+
+        <input type="password" name="password" placeholder="Password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" [(ngModel)]="credentials.password" #passwordBox="ngModel"/>
+        <span *ngIf="passwordBox.errors?.['required'] && passwordBox.touched">Missing Password</span>
+        <span *ngIf="passwordBox.errors?.['pattern'] && passwordBox.touched">Password must contain at least one letter or number</span>
+        <span *ngIf="passwordBox.errors?.['minlength'] && passwordBox.touched">Password must contain at least 8 characters</span>
+
+        <button [disabled]="loginForm.invalid">Login</button>
+
+    </form>
+
+</div>

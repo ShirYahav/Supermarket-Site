@@ -1,0 +1,62 @@
+<div>
+    
+    <h2>Register</h2>
+
+    <form (ngSubmit)="submit()" #registerForm="ngForm" >
+        
+        <ng-container *ngIf="!(isTaken === false && isConfirmed === true)">
+
+        <input type="number" name="id" placeholder="ID" min="0" required pattern="^\d{9}$" [(ngModel)]="customer.customerId" #idBox="ngModel"/>
+        <span *ngIf="idBox.errors?.['required'] && idBox.touched">Missing Id</span>
+        <span *ngIf="idBox.errors?.['pattern'] && idBox.touched">Id must have 9 digits</span>
+
+        <input type="email" name="email" placeholder="Email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [(ngModel)]="customer.email" #emailBox="ngModel"/>
+        <span *ngIf="emailBox.errors?.['required'] && emailBox.touched">Missing Email</span>
+        <span *ngIf="emailBox.errors?.['pattern'] && emailBox.touched"> Email</span>
+
+
+        <input type="password" name="password" placeholder="Password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" [(ngModel)]="customer.password" #passwordBox="ngModel"/>
+        <span *ngIf="passwordBox.errors?.['required'] && passwordBox.touched">Missing Password</span>
+        <span *ngIf="passwordBox.errors?.['pattern'] && passwordBox.touched">Password must contain at least one letter or number</span>
+        <span *ngIf="passwordBox.errors?.['minlength'] && passwordBox.touched">Password must contain at least 8 characters</span>
+
+
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" [(ngModel)]="confirmPassword" #confirmPasswordBox="ngModel"/>
+        <span *ngIf="confirmPasswordBox.errors?.['required'] && confirmPasswordBox.touched">Missing Confirmation</span>
+        <span *ngIf="confirmPasswordBox.errors?.['pattern'] && confirmPasswordBox.touched">Password must contain at least one letter or number</span>
+
+        <button type="button" class="nextButton" [disabled]="registerForm.invalid" (click)="nextStep()">
+            Next
+            <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+
+        </ng-container>
+        
+        <ng-container *ngIf="isTaken === false && isConfirmed === true">
+            <input type="text" name="firstName" placeholder="First Name" required pattern="^([a-zA-Z]*)$" [(ngModel)]="customer.firstName" #firstNameBox="ngModel"/>
+            <span *ngIf="firstNameBox.errors?.['required'] && firstNameBox.touched">Missing First Name</span>
+            <span *ngIf="firstNameBox.errors?.['pattern'] && firstNameBox.touched">Should include first name only</span>
+
+            <input type="text" name="lastName" placeholder="last Name" required pattern="^([a-zA-Z]*)$" [(ngModel)]="customer.lastName" #lastNameBox="ngModel"/>
+            <span *ngIf="lastNameBox.errors?.['required'] && lastNameBox.touched">Missing Last Name</span>
+            <span *ngIf="lastNameBox.errors?.['pattern'] && lastNameBox.touched">Should include last name only</span>
+
+            <label class="selectLabel" for="cityName">Select a city</label>
+            <select name="cityName" [(ngModel)]="customer.city" required #cityBox="ngModel">
+                <option disabled selected>Select a City</option>
+                <option *ngFor="let c of cities" [value]="c._id">{{c.cityName}}</option>
+            </select>
+            <span *ngIf="cityBox.errors?.['required'] && cityBox.touched">Missing City</span>
+
+            <input type="text" name="street" placeholder="Street" required pattern=".*\S.*" [(ngModel)]="customer.street" #streetBox="ngModel"/>
+            <span *ngIf="streetBox.errors?.['required'] && streetBox.touched">Missing Street</span>
+            <span *ngIf="streetBox.errors?.['pattern'] && streetBox.touched">Invalid Street</span>
+
+            <button [disabled]="registerForm.invalid">Register</button>
+    
+        </ng-container>
+
+    </form>
+
+
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="cartItem">
+
+    <h4>{{cartItem?.item?.name}}</h4>
+    <span>{{cartItem?.item?.price | currency:'ILS'}}</span>
+    <span>X{{cartItem?.quantity}}</span>
+    <span>In Total {{cartItem?.totalPrice | currency:'ILS'}}</span>
+    <button (click)="deleteCartItem(cartItem._id)"><mat-icon>close</mat-icon></button>
+    
+</div>

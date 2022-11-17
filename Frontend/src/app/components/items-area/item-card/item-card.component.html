@@ -1,0 +1,11 @@
+<div>
+
+    <button (click)="openDialog()">
+
+        <img [src]="itemImage + item.imageName" />
+        <h4>{{item.name}}</h4>
+        <p>{{item.price | currency:'ILS'}}</p>
+
+    </button>
+    
+</div>

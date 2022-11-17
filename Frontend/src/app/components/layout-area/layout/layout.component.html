@@ -1,0 +1,27 @@
+<div>
+    <header>
+        <app-header></app-header>
+    </header>
+
+    <main>
+      <mat-drawer-container class="container" autosize>
+    
+        <mat-drawer #drawer class="sidenav" mode="side">
+          <app-shopping-cart *ngIf="customer?.role === 'User'"></app-shopping-cart>
+          <app-add-item *ngIf="customer?.role === 'Admin'"></app-add-item>
+        </mat-drawer>
+    
+        <div class="sidenav-content">
+          <button type="button" mat-button (click)="drawer.toggle()" *ngIf="token">
+            <span *ngIf="customer?.role === 'User'"> My Shopping Cart <mat-icon>shopping_cart</mat-icon> </span>
+            <span *ngIf="customer?.role === 'Admin'"> Add Item + </span>
+          </button>
+        </div>
+    
+        <router-outlet></router-outlet>
+    
+      </mat-drawer-container>
+    </main>
+
+</div>
+
