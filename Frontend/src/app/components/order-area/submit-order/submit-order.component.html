@@ -1,0 +1,63 @@
+<div *ngIf="cartItems?.length !== 0">
+
+    <input class="search-input" [(ngModel)]="searchText" type="search" placeholder="Search Item">
+
+    <ul>
+        <li *ngFor="let i of cartItems | filter: searchText" [value]="i._id">
+            <img [src]="itemImage + i.item.imageName" />
+            <span class="text-container" [innerHtml]="i.item.name| highlighter:searchText:'partial'"></span>
+            <span class="text-container"> {{ i.item.price | currency:'ILS'}} </span>
+            <span class="text-container"> X{{i.quantity}} </span>
+            <span class="text-container"> {{i.totalPrice | currency:'ILS'}} In Total. </span>
+        </li>
+        <li>Total Price: {{totalPrice | currency:'ILS'}}</li>
+    </ul>
+
+    <div *ngIf="order">
+        <form (ngSubmit)="placeOrder()" #addOrderForm="ngForm">
+
+            <h2>Shipping Details</h2>
+
+            <button type="button" class="fill-input" (dblclick)="fillAddress()">Is your home address is also your
+                shipping address?</button>
+
+            <label>Select Shipping City</label>
+            <span *ngIf="shippingCityBox.errors?.['required'] && shippingCityBox.touched">Missing City Name</span>
+            <select name="shippingCity" required [(ngModel)]="order.shippingCity" #shippingCityBox="ngModel">
+                <option disabled selected>Select a City</option>
+                <option *ngFor="let c of cities" [value]="c._id">{{c.cityName}}</option>
+            </select>
+
+            <label>Shipping Street</label>
+            <span *ngIf="shippingStreetBox.errors?.['required'] && shippingStreetBox.touched">Missing Street Name</span>
+            <span *ngIf="shippingStreetBox.errors?.['pattern'] && shippingStreetBox.touched">Invalid Street Name</span>
+            <input type="text" name="shippingStreet" required pattern=".*\S.*" [(ngModel)]="order.shippingStreet"
+                #shippingStreetBox="ngModel" />
+
+            <label>Select Shipping Date</label>
+            <span *ngIf="shippingDateBox.errors?.['required'] && shippingDateBox.touched">Missing Shipping Date</span>
+            <input matInput type="date" name="shippingDate" required min="{{currentDate | date: 'yyyy-MM-dd'}}"
+                [(ngModel)]="order.shippingDate" #shippingDateBox="ngModel" />
+
+            <h3>Payment</h3>
+
+            <hr>
+
+            <span *ngIf="creditCardBox.errors?.['required'] && creditCardBox.touched">Missing Credit Card</span>
+            <span *ngIf="creditCardBox.errors?.['pattern'] && creditCardBox.touched">Credit Card must have 16
+                digits</span>
+            <input type="number" name="creditCard" placeholder="Credit Card" required pattern="^\d{16}$"
+                [(ngModel)]="order.creditCard" #creditCardBox="ngModel" />
+
+            <div class="buttons">
+                <a routerLink="/item-list"><button>Retrieve</button></a>
+                <button type="submit" [disabled]="addOrderForm.invalid">Place Order</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="cartItems?.length === 0">
+    <p>Your cart is empty</p>
+    <a routerLink="/item-list">click here to start shopping</a>
+</div>

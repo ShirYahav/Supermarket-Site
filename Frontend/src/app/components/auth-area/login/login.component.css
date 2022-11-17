@@ -1,0 +1,55 @@
+div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+h2 {
+    font-size: 40px;
+    color: rgb(0, 54, 14);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 37%; 
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 54, 14, 0.9);
+    background-color: transparent;
+    color: black;
+
+}
+
+::placeholder {
+    color: rgba(0, 54, 14, 0.9);
+    font-weight: bold;
+}
+
+button {
+    width: 17%; 
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: rgba(0, 54, 14);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-icon {
+    margin-left: 4px;
+}

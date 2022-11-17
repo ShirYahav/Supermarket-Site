@@ -1,0 +1,26 @@
+<div>
+    
+
+    <img name="image" [src]="itemImage + data.item?.imageName"/>
+
+    <h4 name="name"> {{data.item.name}} </h4>
+
+    <p name="price"> {{data.item.price | currency:'ILS'}} </p>
+
+
+    <form #cartItemForm="ngForm">
+
+        <input name="quantity" type="number" name="quantity" min="1" placeholder="Quantity" [(ngModel)]="cartItem.quantity" #quantityBox="ngModel">
+
+        <span name="totalPrice"> In Total : {{ (cartItem.quantity * data.item.price) | currency:'ILS' }} </span>
+    
+        <span class="buttons">
+            <button class="close" (click)="close()">Close</button>
+            <button class="save" (click)="save()">Save</button>
+        </span>
+    </form>
+
+
+
+
+</div>

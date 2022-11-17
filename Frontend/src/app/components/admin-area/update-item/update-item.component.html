@@ -1,0 +1,28 @@
+<div>
+
+    <form (ngSubmit)="update()" [formGroup]="itemForm" *ngIf="itemForm">
+
+        <h2>Update Item</h2>
+
+        <label>Select a category: </label>
+        <select name="category" [formControl]="categorySelect" required >
+            <option disabled selected>Select a category</option>
+            <option *ngFor="let c of categories" [value]="c._id" >{{c?.category}}</option>
+        </select>
+
+        <label>Item Name: </label>
+        <input type="text" name="name" [formControl]="nameInput" required minlength="3" >
+
+        <label>Price: </label>
+        <input type="number" name="price" [formControl]="priceInput"  step="0.01" required min="0" max="1000" >
+
+        <label>Image: </label>
+        <input class="imageInput" type="file" accept="image/*" name="image" required [formControl]="imageInput"  #imageBox>
+
+        <div class="buttons">
+            <a routerLink="/item-list-admin"><button type="button">Retrieve</button></a>
+            <button [disabled]="!itemForm.valid">Update</button>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,43 @@
+select {
+    width: 236px; 
+    margin-top: 20px;
+    height: 45px;
+    border-radius: 8px;
+    border: 2px solid rgb(171, 145, 109);
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgb(171, 145, 109);
+    display: flex;
+    margin-left: 57px;
+    font-weight: 300;
+}
+
+input {
+    width: 229px; 
+    margin-top: 20px;
+    height: 39px;
+    border-radius: 8px;
+    border: 2px solid rgb(171, 145, 109);
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgb(171, 145, 109);
+    display: flex;
+    margin-left: 57px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: rgb(171, 145, 109);
+}
+
+div > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.itemsList {
+    margin-top: 35px;
+}
+
+

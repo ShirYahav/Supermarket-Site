@@ -1,0 +1,81 @@
+
+h2 {
+    font-size: 40px;
+    color: rgb(0, 54, 14);
+    font-family: 'Oswald', sans-serif;
+    margin-top: 35px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+label { 
+    margin-bottom: -21px;
+}
+
+input {
+    width: 300px; 
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 54, 14, 0.9);
+    background-color: transparent;
+    color: black;
+    margin-bottom: 20px;
+
+}
+
+select {
+    width: 300px; 
+    margin-top: 20px;
+    height: 45px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 54, 14, 0.9);
+    background-color: transparent;
+    color: rgba(0, 54, 14, 0.9);
+    margin-bottom: 25px;
+
+}
+
+button {
+    width: 140px; 
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: rgba(0, 54, 14);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 13px;
+    margin-bottom: 45px;
+    
+}
+
+.imageInput {
+    border:none;
+}
+
+input[type=file]::file-selector-button {
+    width: 300px; 
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 54, 14, 0.9);
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}

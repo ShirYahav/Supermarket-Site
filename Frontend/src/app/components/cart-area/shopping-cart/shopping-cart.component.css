@@ -1,0 +1,36 @@
+.bottomCart {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+}
+
+h4 {
+    margin-top: 4px;
+    font-size: 17px;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 17px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 9px;
+    width: 122px;
+    height: 35px;
+}
+
+h2{
+    height: 355px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 300;
+
+}
+
+a {
+    color: white;
+}

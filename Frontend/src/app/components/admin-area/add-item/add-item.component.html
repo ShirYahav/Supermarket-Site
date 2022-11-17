@@ -1,0 +1,34 @@
+<div class="box">
+
+    <form (ngSubmit)="add(addItemForm)" #addItemForm="ngForm" >
+
+        <h2>Add Item</h2>
+
+        <label>Select a category: </label>
+        <select name="category" [(ngModel)]="item.categoryId" required #categoryBox="ngModel">
+            <option disabled selected>Select a category</option>
+            <option *ngFor="let c of categories" [value]="c._id" >{{c.category}}</option>
+        </select>
+        <span *ngIf="categoryBox.touched && categoryBox.errors?.['required']">Missing category</span>
+
+        <label>Item Name: </label>
+        <input type="text" name="name" [(ngModel)]="item.name" required minlength="3" pattern=".*\S.*" #nameBox="ngModel">
+        <span *ngIf="nameBox.touched && nameBox.errors?.['required']">Missing name</span>
+        <span *ngIf="nameBox.touched && nameBox.errors?.['minlength']">Name too short</span>
+        <span *ngIf="nameBox.touched && nameBox.errors?.['pattern']">Invalid name</span>
+
+
+        <label>Price: </label>
+        <input type="number" name="price" [(ngModel)]="item.price" step="0.01" required min="0" max="1000" #priceBox="ngModel">
+        <span *ngIf="priceBox.touched && priceBox.errors?.['required']">Missing price</span>
+        <span *ngIf="priceBox.touched && priceBox.errors?.['min']">Price can't be negative</span>
+        <span *ngIf="priceBox.touched && priceBox.errors?.['max']">Price can't exceed 1000</span>
+
+        <label>Image: </label>
+        <input class="imageInput" type="file" accept="image/*" name="image" required #imageBox>
+
+        <button [disabled]="addItemForm.invalid">Add</button>
+
+    </form>
+
+</div>

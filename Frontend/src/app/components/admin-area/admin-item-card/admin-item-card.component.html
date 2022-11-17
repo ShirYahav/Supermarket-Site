@@ -1,0 +1,11 @@
+<div>
+
+    <img [src]="itemImage + item.imageName" />
+    <h4>{{item.name}}</h4>
+    <p>{{item.price | currency:'ILS'}}</p>
+
+    <a routerLink="/update-item/{{item._id}}">
+        <button type="button">Edit <mat-icon>create</mat-icon> </button>
+    </a>
+
+</div>

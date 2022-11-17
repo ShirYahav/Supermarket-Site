@@ -1,0 +1,12 @@
+<div>
+    <app-cart-item-li *ngFor="let c of cartItems" [cartItem]="c" (deleteCItem)="deleteThisCartItem($event) "></app-cart-item-li>
+</div>
+
+<div class="bottomCart" *ngIf="(cartItems?.length) !== 0">
+    <h4>Total Price: {{totalPrice | currency:'ILS'}}</h4>
+    <button (click)="clearCart(shoppingCart._id)">Clear Cart X</button>
+    <a routerLink="/submit-order"><button>Order</button></a>
+</div>
+
+
+<h2 *ngIf="(cartItems?.length) === 0">Your Shopping Cart Is Empty</h2>

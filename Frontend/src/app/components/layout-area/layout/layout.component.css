@@ -1,0 +1,29 @@
+button {
+    width: 236px; 
+    margin-top: 10px;
+    height: 45px;
+    border: none;
+    font-size: 19px;
+    background-color:transparent;
+    color: rgb(171, 145, 109);
+    display: flex;
+    margin-left: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+span {
+    font-weight: 300;
+    font-size: 22px;
+}
+
+mat-icon{ 
+    margin-left: 5px;
+}
+
+.sidenav {
+    width: 450px;
+    background-color: rgb(216, 188, 151);
+}

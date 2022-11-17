@@ -1,0 +1,145 @@
+img {
+    width: 90px;
+    height: 85px;
+    border-radius: 8px;
+    background-position: center;
+    background-size: fill;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+input {
+    width: 37%; 
+    margin-top: 7px;
+    margin-bottom: 7px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 54, 14, 0.9);
+    background-color: transparent;
+    color: black;
+
+}
+
+select {
+    width: 37.5%; 
+    margin-top: 7px;
+    margin-bottom: 7px;
+    height: 45px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 54, 14, 0.9);
+    background-color: transparent;
+    color: rgba(0, 54, 14, 0.9);
+}
+
+h2 {
+    font-size: 32px;
+    color: rgb(0, 54, 14);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 28px;
+    color: rgb(0, 54, 14);
+    font-family: 'Oswald', sans-serif;
+    margin-top: 10px;
+}
+
+hr {
+    color: rgb(0, 54, 14);
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    width: 144px;
+    margin: 13px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: rgba(0, 54, 14);
+    color: white;
+    font-weight: 300;
+    font-size: medium;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::ng-deep .highlighted-text{
+    background-color: yellow;
+}
+
+.search-input {
+    width: 229px;
+    margin-top: 21px;
+    margin-bottom: 23px;
+    height: 39px;
+    border-radius: 8px;
+    border: 2px solid rgb(171, 145, 109);
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    margin-left: 41px;
+    font-weight: 300;
+}
+
+.fill-input {
+    border: none;
+    background-color: transparent;
+    color:rgba(0, 54, 14);
+    text-decoration: underline;
+    font-size: 14px;
+    width: 339px;
+    margin-top: 6px;
+}
+
+label {
+    margin-bottom: -6px;
+    color: rgba(0, 54, 14);
+    font-weight: bold;
+}
+
+span{
+    margin-top: 18px;
+
+}
+
+.text-container {
+    margin-top: 0px;
+    margin-right: 8px;
+}
+
+p {
+    font-weight: 300;
+    font-size: 23px;
+    margin: 30px;
+}
+
+a {
+    font-size: 18px;
+    text-decoration: underline;
+}

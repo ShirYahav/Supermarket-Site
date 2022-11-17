@@ -1,0 +1,17 @@
+<div>
+
+    <div>
+        <select (change)="getItemsByCategory($event)">
+            <option disabled selected>Select a category</option>
+            <option *ngFor="let c of categories" [value]="c._id">{{c.category}}</option>
+        </select>
+    
+        <input type="text" [(ngModel)]="term" placeholder="look for an item" />
+    </div>
+            <br>
+    
+    <div class="itemsList">
+        <app-item-card *ngFor="let i of items | filter: term" [item]="i"></app-item-card>
+    </div>
+
+</div>
